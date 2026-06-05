@@ -1,73 +1,127 @@
-# React + TypeScript + Vite
+# 📜 Infiroll - Infinite Quotes App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React application that fetches motivational quotes using infinite scroll. Built with React Query, Axios, and Mantine viewport detection.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+##  Features
 
-## React Compiler
+-  Infinite scrolling quotes
+-  Fast fetching with React Query
+-  Intersection Observer (useInViewport)
+-  Quote + Author + Categories display
+-  Responsive UI (mobile + desktop)
+-  Styled with Tailwind CSS + shadcn/ui
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React (Vite)
+- React Query (@tanstack/react-query)
+- Axios
+- Mantine Hooks
+- Tailwind CSS
+- shadcn/ui
+- Ninja API
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/ABUBAKAR-DAHIR/infiroll.git
+cd infiroll
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Run locally
+```bash
+pnpm run dev
 ```
+
+
+App runs at:
+
+http://localhost:5173
+
+## API Used
+
+API Ninjas Quotes API
+
+
+GET https://api.api-ninjas.com/v1/quotes
+
+
+### Query Params:
+
+- category
+- limit
+- offset
+
+---
+
+## How It Works
+
+- `useInfiniteQuery` handles pagination
+- `offset` controls page fetching
+- `useInViewport` detects bottom scroll
+- `fetchNextPage()` loads more quotes automatically
+
+---
+
+## 📁 Project Structure
+```text
+infiroll/
+│
+├── public/
+│ ├── favicon.svg
+│ └── icons.svg
+│
+├── src/
+│
+│ ├── assets/
+│ │ ├── hero.png
+│ │ ├── react.svg
+│ │ └── vite.svg
+│
+│ ├── components/
+│ │
+│ │ ├── ui/
+│ │ │ ├── button.tsx # Reusable UI button component
+│ │ │ ├── card.tsx # Card UI component
+│ │ │ └── skeleton.tsx # Loading skeleton component
+│ │
+│ │ ├── Quotes.tsx # Main infinite scroll quotes UI
+│ │ ├── QuotesLoading.tsx # Loading state UI for quotes
+│ │ └── QueryClientProviderC.tsx # React Query provider wrapper
+│
+│ ├── hooks/
+│ │ └── fetchQuotes.tsx # Infinite query API logic
+│
+│ ├── libs/
+│ │ ├── api.ts # Axios instance (baseURL + headers)
+│ │ └── utils.ts # Helper utilities
+│
+│ ├── index.css # Global styles (Tailwind base)
+│ ├── main.tsx # React entry point
+│ ├── App.tsx # Root app component
+│
+├── components.json # shadcn/ui config
+├── vite.config.ts # Vite configuration
+├── tsconfig.json # TypeScript config
+├── tsconfig.app.json # App TS config
+├── tsconfig.node.json # Node TS config
+├── eslint.config.js # ESLint rules
+├── package.json # Dependencies & scripts
+├── pnpm-lock.yaml # Lock file (pnpm)
+└── README.md # Project documentation
+```
+
+## 👨‍💻 Author
+
+**Abubakar Dahir Hassan**
+
+
+
+
