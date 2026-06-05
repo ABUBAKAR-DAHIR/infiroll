@@ -18,6 +18,10 @@ function Quotes() {
         initialPageParam: 0,
         getNextPageParam: (lastPage, allPages) => {
             if(!lastPage || lastPage.length < 8) return undefined
+            console.log("All pages: ", allPages)
+            console.log("All pages length: ", allPages.length)
+            console.log("Last page: ", lastPage)
+            console.log("offset: ", allPages.length * 8)
             return allPages.length * 8
         }
 
