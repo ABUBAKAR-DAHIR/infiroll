@@ -49,7 +49,7 @@ function Quotes() {
                         {
                             quotes?.pages.flatMap((qs) => 
                             qs.map((quote: any) => (
-                                <div key={quote.quote} className='w-120 max-md:w-100 min-h-60 p-4 border mx-auto rounded-2xl'>
+                                <div key={quote.quote} className='w-120 max-md:w-80 max-sm:w-9/10 min-h-60 p-4 border mx-auto rounded-2xl'>
                                     <p className='text-center'>{quote.quote}</p>
         
                                     <p className='text-center font-semibold my-5'>~{quote.author}</p>
