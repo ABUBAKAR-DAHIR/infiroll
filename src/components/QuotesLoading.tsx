@@ -4,7 +4,7 @@ function QuotesLoading({streams} : {streams?: number}) {
   return ( 
     <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mx-auto gap-y-6 mt-4'>
         {
-            Array.from({length: streams ? streams : 7}).map(() => (
+            Array.from({length: streams ? streams : 8}).map(() => (
             <div className='w-120 max-md:w-80 max-sm:w-9/10 min-h-60 p-4 border mx-auto rounded-2xl'>
                 <Skeleton className="w-full h-16 max-md:h-10 mb-4"/>
 

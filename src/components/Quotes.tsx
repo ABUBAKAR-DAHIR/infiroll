@@ -23,6 +23,7 @@ function Quotes() {
 
     })
 
+
     const {ref, inViewport} = useInViewport()
 
     useEffect(() => {
@@ -68,7 +69,8 @@ function Quotes() {
                     </div>
 
                 }
-                <div ref={ref} className=''/>
+                {!hasNextPage && !isLoading && !error && !isFetchingNextPage && <p className='text-center'>No more Quotes.</p>}
+                <div ref={ref} />
                 {isFetchingNextPage && <QuotesLoading streams = {4}/>}
                 
             </CardContent>
