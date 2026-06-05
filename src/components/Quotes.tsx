@@ -1,4 +1,4 @@
-import { useInfiniteQuery, useQuery } from '@tanstack/react-query'
+import { useInfiniteQuery } from '@tanstack/react-query'
 import { fetchQuotes } from '../hooks/fetchQuotes'
 import { Card, CardContent, CardHeader } from './ui/card'
 import { Button } from './ui/button'
